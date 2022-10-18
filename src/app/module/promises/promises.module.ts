@@ -12,6 +12,12 @@ import { IntervalComponent } from './observable/interval/interval.component';
 import { OfFromComponent } from './observable/of-from/of-from.component';
 import { ToArrayComponent } from './observable/to-array/to-array.component';
 import { CustomComponent } from './observable/custom/custom.component';
+import { MapOperatorComponent } from './observable/map-operator/map-operator.component';
+import { PluckOperatorComponent } from './observable/pluck-operator/pluck-operator.component';
+import { FilterOperatorComponent } from './observable/filter-operator/filter-operator.component';
+import { TapOperatorComponent } from './observable/tap-operator/tap-operator.component';
+import { TakeComponent } from './observable/take/take.component';
+import { RetryComponent } from './observable/retry/retry.component';
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import { CustomComponent } from './observable/custom/custom.component';
     IntervalComponent,
     OfFromComponent,
     ToArrayComponent,
-    CustomComponent
+    CustomComponent,
+    MapOperatorComponent,
+    PluckOperatorComponent,
+    FilterOperatorComponent,
+    TapOperatorComponent,
+    TakeComponent,
+    RetryComponent
   ],
   imports: [
     CommonModule,
