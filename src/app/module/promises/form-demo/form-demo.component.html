@@ -1,0 +1,93 @@
+<div class="pt-5">
+  <h2 class="text-center">Reactive Form With Form-Array</h2>
+  <hr>
+  <div class="d-flex justify-content-center">
+    <div class="container border border-dark rounded p-5">
+      <div class="row">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Name" formControlName="userName" />
+              <span class="text-danger" *ngIf="
+                  (f.userName && f.userName.invalid && f.userName.touched) ||
+                  (f.userName && f.userName.invalid && formSubmitted)
+                ">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+              <span class="text-danger" *ngIf="
+                  (f.email && f.email.invalid && f.email.touched) ||
+                  (f.email && f.email.invalid && formSubmitted)
+                ">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label">Course</label>
+            <div class="col-sm-10">
+              <select class="form-select" formControlName="course">
+               
+                <option *ngFor="let item of subject" value="{{ item }}">
+                  {{ item }}
+                </option>
+              </select>
+              <span class="text-danger" *ngIf="
+                  (f.course && f.course.invalid && f.course.touched) ||
+                  (f.course && f.course.invalid && formSubmitted)
+                ">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+              <div class="input-group" *ngFor="let item of gender">
+                <input type="radio" id="{{ item.id }}" formControlName="gender"
+                  value="{{ item.genderType }}" />&nbsp;&nbsp;
+                <label class="col-sm-2 col-form-label" for="{{ item.id }}">{{
+                  item.genderType
+                  }}</label>
+              </div>
+              <span class="text-danger" *ngIf="
+                (f.gender && f.gender.invalid && f.gender.touched) ||
+                (f.gender && f.gender.invalid && formSubmitted)
+              ">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group row" formArrayName="skills">
+            <label class="col-sm-2 col-form-label">Skills</label>
+            <div class="col-sm-10">
+              <ng-container *ngFor="
+                  let skilss of userForm.get('skills').controls;
+                  index as i
+                ">
+                <input type="text" formControlName="{{ i }}" class="form-control mt-2" placeholder="Skills" />
+              </ng-container>
+              <span class="text-danger" *ngIf="
+                (f.skills && f.skills.invalid && f.skills.touched) ||
+                (f.skills && f.skills.invalid && formSubmitted)
+              ">Required</span>
+              <div>
+                <button type="button" class="btn btn-outline-primary btn-sm mt-3" (click)="onAddSkills()">
+                  + Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3 d-flex justify-content-end">
+            <button type="submit" class="btn btn-outline-success">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,10 @@ import { FilterOperatorComponent } from './observable/filter-operator/filter-ope
 import { TapOperatorComponent } from './observable/tap-operator/tap-operator.component';
 import { TakeComponent } from './observable/take/take.component';
 import { RetryComponent } from './observable/retry/retry.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { DebounceTimeComponent } from './observable/debounce-time/debounce-time.component';
+import { FormDemoComponent } from './form-demo/form-demo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,11 +40,15 @@ import { RetryComponent } from './observable/retry/retry.component';
     FilterOperatorComponent,
     TapOperatorComponent,
     TakeComponent,
-    RetryComponent
+    RetryComponent,
+    DebounceTimeComponent,
+    FormDemoComponent
   ],
   imports: [
     CommonModule,
-    PromisesRoutingModule
+    PromisesRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class PromisesModule { }

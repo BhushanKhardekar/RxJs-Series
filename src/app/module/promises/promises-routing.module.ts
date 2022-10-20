@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './container/container.component';
+import { FormDemoComponent } from './form-demo/form-demo.component';
 import { CustomComponent } from './observable/custom/custom.component';
+import { DebounceTimeComponent } from './observable/debounce-time/debounce-time.component';
 import { FilterOperatorComponent } from './observable/filter-operator/filter-operator.component';
 import { FromEventComponent } from './observable/from-event/from-event.component';
 import { IntervalComponent } from './observable/interval/interval.component';
@@ -21,6 +23,7 @@ const routes: Routes = [
     component: ContainerComponent,
     children: [
       { path: 'promise', component: ViewPromisesComponent },
+      { path: 'form', component: FormDemoComponent },
       {
         path: 'observable',
         component: ObservableComponent,
@@ -37,6 +40,7 @@ const routes: Routes = [
           { path: 'tap', component: TapOperatorComponent },
           { path: 'take', component: TakeComponent },
           { path: 'retry', component: RetryComponent },
+          { path: 'debounce', component: DebounceTimeComponent },
         ],
       },
     ],
